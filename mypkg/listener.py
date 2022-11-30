@@ -1,13 +1,31 @@
 import rclpy                #ros2のクライアントのためのライブラリ
 from rclpy.node import Node     #ノードを実装するためのNodeクラス
-from std_msgs.msg import Int16  #通信の型(16ビットの符号付き整数)
+from person_msgs.srv import Query  #通信の型(16ビットの符号付き整数)
 
-def cd(msg):
-    global node
-    node.get_logger().info("Listen: %d" % msg.data)
+def main():
+    rclpy.init()
+    node = Node("listener")
+    client = node.create_client(Query,'query')
+    while not client.wait_for_service(timeout_sec = 1.0):
+        node.get_logger().info('大気中')
 
-rclpy.init()
-node = Node("Listener")
-pub = node.create_subscription(Int16,"countup",cd,10)
-rclpy.spin(node)
+    req = Query.Request()
+    req.name = "齊藤伊吹"
+    future = client.call_async(req)
+    while rclpy.ok():
+        rclpy.spin_once(node)
+        if future.done():
+            try:
+                response = future.result()
+            except:
+                node.get_logger().info('呼び出し失敗')
+            else:
+                node.get_logger().info("age: {}".format(response.age))
 
+            break
+
+    node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
