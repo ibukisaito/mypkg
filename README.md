@@ -14,11 +14,12 @@
 ## listener.py
 ### 内容
 * countupからデータを読み込み標準出力に出力する
+
 ## 実行準備
-以下を実行
+ワークスペースディレクトリで以下を実行
 ```
-$ cd ~/ros2_ws;colcon build
-$ source 
+$ colcon build
+$ source ~/.bashrc
 ```
 ## 入出力例
 ```
