@@ -4,51 +4,35 @@
 
 
 ![test](https://github.com/ibukisaito/mypkg/actions/workflows/test.yml/badge.svg)
+# ノード
 
-#
+## talker.py
+### 内容
+* countupというオブジェクトを作成
+* 0.5秒ごとに数字を出力
 
-## 内容
-* 入出力例
+## listener.py
+### 内容
+* countupからデータを読み込み標準出力に出力する
+## 実行準備
+以下を実行
 ```
-$ seq 10 | ./plus
-55 # <- 出力例
-
-$ seq 5 | ./plus
-15 # <- 出力例
+$ cd ~/ros2_ws;colcon build
+$ source 
 ```
-# 
-## 内容
-* 入出力例
+## 入出力例
 ```
-$ seq 10 | ./average
-5.5 # <- 出力例
-
-$ seq 0 | ./average
-Error # <- 出力例
+$ ros2 launch mypkg talk.listen_launch.py
+[listener-2] [INFO] [1671907754.131586200] [Listener]: Listen: 7 <- 出力例
 ```
-
-# 
-
-## 内容
-
-```
-$ ./country_time america
-2:03 # <- 出力例
-
-$ ./country_time india
-Not Implement # <- 出力例
-```
-## 実装されている国
 
 # 実用なソフトウェア
 * テスト済み
-  * python:3.7～3.10
+  * python:3.10
 
 
 # テスト環境
 * Ubuntu 22.04.1 LTS
-
-# 参考サイト
 
 # ライセンス
 * このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます
