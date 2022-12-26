@@ -7,28 +7,21 @@
 
 ## talker.py
 ### 内容
-* countupというオブジェクトを作成
-* 0.5秒ごとに数字を出力
+* 0.5秒ごとにcountupというトピックに数字を出力
 
 ## listener.py
 ### 内容
-* countupからデータを読み込み標準出力に出力する
+* countupに流れてくるデータを読み込み標準出力に出力する
 
-## 実行準備
-ワークスペースディレクトリで以下を実行
-```
-$ colcon build
-$ source ~/.bashrc
-```
 ## 入出力例
 ```
-$ ros2 launch mypkg talk.listen_launch.py
+$ ros2 launch mypkg talk_listen.launch.py
 [listener-2] [INFO] [1671907754.131586200] [Listener]: Listen: 7 <- 出力例
 ```
 
 # 実用なソフトウェア
 * テスト済み
-  * python:3.10
+  * python:3
 
 
 # テスト環境
