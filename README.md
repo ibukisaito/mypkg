@@ -32,7 +32,7 @@ $ ros2 launch mypkg talk.listen_launch.py
 
 
 # テスト環境
-* Ubuntu 22.04.1 LTS
+* Ubuntu 22.04
 
 # ライセンス
 * このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます
