@@ -11,21 +11,34 @@
 
 ## listener.py
 ### 内容
-* countupに流れてくるデータを読み込み標準出力に出力する
+* countupに流れてくるデータを読み込み標準出力に出力
+
 
 ## 入出力例
+launchを使い実行する場合
+
 ```
 $ ros2 launch mypkg talk_listen.launch.py
-[listener-2] [INFO] [1671907754.131586200] [Listener]: Listen: 7 <- 出力例
+[listener-2] [INFO] [1672393778.687177500] [Listener]: Listen: 7
+[listener-2] [INFO] [1672393779.187331600] [Listener]: Listen: 8 <- 出力例
 ```
 
-# 実用なソフトウェア
-* テスト済み
-  * python:3
+ros2 run で実行する場合
 
+端末1
+```
+$ ros2 run mypkg talker
+```
+
+端末2
+```
+$ ros2 run mypkg listener
+[INFO] [1672390135.173830400] [Listener]: Listen: 7
+[INFO] [1672390135.656139300] [Listener]: Listen: 8 <- 出力例
+```
 
 # テスト環境
-* Ubuntu 22.04
+* Ubuntu 22.04 (ros2 humble)
 
 # ライセンス
 * このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます
